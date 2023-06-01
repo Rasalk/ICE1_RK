@@ -19,13 +19,33 @@ public class CardTrick {
         for (int i=0; i<magicHand.length; i++)
         {
             Card c = new Card();
+            c.setValue((int)(Math.random() *13) + 1);
+            c.setSuit(Card.SUITS[(int) (Math.random() *4)]);
+            magicHand[i] = c;
             //c.setValue(insert call to random number generator here)
             //c.setSuit(Card.SUITS[insert call to random number between 0-3 here])
         }
+        int userValue = 1;
+        String userSuit = "Spades";
         
+        boolean cardFound = false;
+        
+        for (int i = 0; i < magicHand.length; i++)
+        {
+            Card currentCard = magicHand[i];
+            if (currentCard.getValue() == userValue && currentCard.getSuit().equals(userSuit)) {
+                cardFound = true;
+                break;
+            }
+        }
+
+        if (cardFound) {
+            System.out.println("Congratulations! Your card is in the magic hand.");
+        } else {
+            System.out.println("Sorry! Your card is not in the magic hand.");
+        }        
+    }
         //insert code to ask the user for Card value and suit, create their card
         // and search magicHand here
         //Then report the result here
-    }
-    
 }
