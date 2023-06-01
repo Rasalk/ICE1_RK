@@ -27,28 +27,9 @@ public class CardTrick {
             c.setSuit(Card.SUITS[(int) (Math.random() *4)]);
             magicHand[i] = c;
         }
-        
-        int userValue = 1;
-        String userSuit = "Spades";
-        
+
+        // Searching for luckyCard in magicHand
         boolean cardFound = false;
-        
-        for (int i = 0; i < magicHand.length; i++) {
-            Card currentCard = magicHand[i];
-            if (currentCard.getValue() == userValue && currentCard.getSuit().equals(userSuit)) {
-                cardFound = true;
-                break;
-            }
-        }
-
-        if (cardFound) {
-            System.out.println("Congratulations! Your card is in the magic hand.");
-        } else {
-            System.out.println("Sorry! Your card is not in the magic hand.");
-        }
-
-        // Checking if luckyCard is in the magic hand
-        cardFound = false;
         for (int i = 0; i < magicHand.length; i++) {
             Card currentCard = magicHand[i];
             if (currentCard.getValue() == luckyCard.getValue() && currentCard.getSuit().equals(luckyCard.getSuit())) {
@@ -58,7 +39,7 @@ public class CardTrick {
         }
 
         if (cardFound) {
-            System.out.println("The lucky card is in the magic hand!");
+            System.out.println("Congratulations! The lucky card is in the magic hand.");
         } else {
             System.out.println("Sorry! The lucky card is not in the magic hand.");
         }
